@@ -71,20 +71,26 @@ require_relative '../../app'
 feature "Entering Names" do
 
   scenario "players can enter names and see them displayed" do
-    visit('/')
-    # find(input id=='player1').fill_in 'player1', with 'Guy'
-    # find(input id=='player1').fill_in 'player2', with 'Russ'
-    fill_in 'player1', with: 'Guy'
-    fill_in 'player2', with: 'Russ'
-    click_button 'Submit'
-    expect(page).to have_content('Guy', 'Russ')
+   sign_in_and_play
+   expect(page).to have_content('Guy', 'Russ')
   end
 
   scenario "As a player I want to see my opponents health bar" do
-    visit '/'
-    fill_in 'player1', with: 'Guy'
-    fill_in 'player2', with: 'Russ'
-    click_button 'Submit'
+    sign_in_and_play
     expect(page).to have_content('Health')
   end
+
+  scenario "Attack button functions" do
+    sign_in_and_play
+    click_button("ATTACK PLAYER 2")
+    expect(page).to have_content('KUNGFU')
+  end
+
+  scenario "Next move button functions" do
+    sign_in_and_play
+    click_button("ATTACK PLAYER 2")
+    click_button("Next move")
+    expect(page).to have_content('Guy')
+  end
+
 end

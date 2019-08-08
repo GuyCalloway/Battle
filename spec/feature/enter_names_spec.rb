@@ -79,12 +79,12 @@ feature "Entering Names" do
     click_button 'Submit'
     expect(page).to have_content('Guy', 'Russ')
   end
+
+  scenario "As a player I want to see my opponents health bar" do
+    visit '/'
+    fill_in 'player1', with: 'Guy'
+    fill_in 'player2', with: 'Russ'
+    click_button 'Submit'
+    expect(page).to have_content('Health')
+  end
 end
-#   scenario "As a player I want to see my opponents health bar" do
-#     visit '/'
-#     fill_in 'player1', with: 'Guy'
-#     fill_in 'player2', with: 'Russ'
-#     click_button 'Submit'
-#     expect(page).to have_content('HealthBar')
-#   end
-# end

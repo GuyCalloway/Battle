@@ -3,7 +3,7 @@ require 'sinatra'
 class Battle < Sinatra::Base
 
   enable :sessions
-
+#enable sessions is basically a hash which stores the player inputs as key value pairs
   get '/' do
     erb :index
   end

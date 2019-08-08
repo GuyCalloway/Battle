@@ -66,3 +66,18 @@
 # As a Player,
 # So I can enjoy my game of Battle,
 # I want a sexy user interface
+
+feature "Entering Names" do
+
+  scenario "players can enter names and see them displayed" do
+    visit '/'
+    # find(input id=='player1').fill_in 'player1', with 'Guy'
+    # find(input id=='player1').fill_in 'player2', with 'Russ'
+    fill_in 'player1', with: 'Guy'
+    fill_in 'player2', with: 'Russ'
+    click_button 'Submit'
+    expect(page).to have_content('Guy')
+  end
+
+
+end

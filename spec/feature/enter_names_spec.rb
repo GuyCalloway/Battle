@@ -1,4 +1,5 @@
-# As two Players,
+require_relative '../../app'
+#As two Players,
 # So we can play a personalised game of Battle,
 # We want to Start a fight by entering our Names and seeing them
 #
@@ -70,14 +71,20 @@
 feature "Entering Names" do
 
   scenario "players can enter names and see them displayed" do
-    visit '/'
+    visit('/')
     # find(input id=='player1').fill_in 'player1', with 'Guy'
     # find(input id=='player1').fill_in 'player2', with 'Russ'
     fill_in 'player1', with: 'Guy'
     fill_in 'player2', with: 'Russ'
     click_button 'Submit'
-    expect(page).to have_content('Guy')
+    expect(page).to have_content('Guy', 'Russ')
   end
-
-
 end
+#   scenario "As a player I want to see my opponents health bar" do
+#     visit '/'
+#     fill_in 'player1', with: 'Guy'
+#     fill_in 'player2', with: 'Russ'
+#     click_button 'Submit'
+#     expect(page).to have_content('HealthBar')
+#   end
+# end

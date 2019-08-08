@@ -93,4 +93,14 @@ feature "Entering Names" do
     expect(page).to have_content('Guy')
   end
 
+  #As Player 1,
+  # So I can start to lose a game of Battle,
+  # I want Player 2's attack to reduce my HP by 10
+  scenario "Next move button functions" do
+    sign_in_and_play
+    click_button("ATTACK PLAYER 2")
+    click_button("Next move")
+    expect(page).to have_content('Health = 90HP')
+  end
+
 end

@@ -1,7 +1,7 @@
 
 
   <h1>Welcome <%= @player1 %> and <%= @player2 %>. Prepare for BATTLE</h1>
-    <h2><%= @player2 %> Health = 100HP</h2>
+    <h2><%= @player2 %> Health = <%=$player2.health%>HP</h2>
     <h2><%= @player1 %> Health = 100HP</h2>
 
     <form action="/attack" method="post">

@@ -103,4 +103,16 @@ feature "Entering Names" do
     expect(page).to have_content('Health = 90HP')
   end
 
+
+  # I want Player 2's attack to reduce my HP by 10
+  scenario "Both payers receive damage" do
+    sign_in_and_play
+    click_button("ATTACK PLAYER 1")
+    click_button("Next move")
+    click_button("ATTACK PLAYER 1")
+    click_button("Next move")
+    click_button("ATTACK PLAYER 2")
+    click_button("Next move")
+    expect(page).to have_content('Health = 90HP', 'Health = 80HP')
+  end
 end
